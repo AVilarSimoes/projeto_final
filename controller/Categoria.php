@@ -4,15 +4,23 @@ require "model/CategoriaModel.php";
 class Categoria{
 
     function __construct() {
-        $this->model = new CategotiaModel();
+        $this->modelo = new CategotiaModel();
     }
 
     function index(){
-        include "view/template/conteudo.php";
+        $categorias = $this->modelo->buscarTudo();
+        include "view/template/cabeçalho.php";
+        include "view/template/menu.php";
+        include "view/categoria/listagem.php";
+        include "view/template/rodape.php";
     }
 
     function add(){
-        echo "mostrar form categoria";
+        include "view/template/cabeçalho.php";
+        include "view/template/menu.php";
+        include "view/categoria/form.php";
+        include "view/template/rodape.php";
+    
     }
 
     function excluir($id){
